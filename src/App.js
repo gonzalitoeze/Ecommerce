@@ -1,14 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
 
-function App() {
+import './App.scss';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { NavBar } from './Components/NavBar/NavBar';
+import { Contact } from './Components/Contact/Contact';
+import { Footer } from './Components/Footer/Footer';
+import ItemListContainer from './Components/ItemListContainer/ItemListContainer';
+
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p style={{color: 'red', fontSize: '500%'}}>hola</p>
-      </header>
-    </div>
+    <BrowserRouter className="App">
+      
+        <NavBar/>
+      <Routes>
+        <Route path='/Contact' element={<Contact/>}/>
+      </Routes>
+        <ItemListContainer/>
+        <Footer/>
+      
+    </BrowserRouter>
   );
 }
 

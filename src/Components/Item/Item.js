@@ -1,8 +1,19 @@
 import { Card, CardBody, CardFooter, CardText, CardTitle } from 'reactstrap'
 import { Link } from 'react-router-dom'
 import Counter from '../Counter/Counter'
+import { useState } from 'react'
 
 const Item = ({producto}) => {
+
+    const [cantidad, setCantidad] = useState(1)
+
+    const handleAddToCart = () => {
+        console.log({
+            ...producto,
+            cantidad,
+        })
+    }
+
     return (
             <div className='Item'>
                 
@@ -22,7 +33,12 @@ const Item = ({producto}) => {
                         <CardText>
                             ${producto.precio}
                         </CardText>
-                        <Counter max={producto.stock}/>
+                        <Counter max={producto.stock}
+                                 counter={cantidad}
+                                 setCounter={setCantidad}
+                                 handleAddToCart={handleAddToCart}
+                        
+                        />
 
                         <Link to={`/item/${producto.id}`} className='btn btn-secondary' style={{width: "100%" , marginTop: "2%", backgroundColor: "white", color: "gray", textDecoration: 'none' }}> View Details </Link>
                     </CardBody>
@@ -30,13 +46,6 @@ const Item = ({producto}) => {
                         Stock: {producto.stock}
                     </CardFooter>
                 </Card>
-                    {/* <img src={producto.img} alt=''/>
-                    <h4>{producto.nombre}</h4>
-                    <p>{producto.desc}</p>
-                    <p>Precio: ${producto.precio}</p>
-                    <small>Stock: {producto.stock}</small>
-                    <a href="/" className="btn btn-primary my-2">Ver más</a>
-                    <hr/> */}
             </div>
     )
 }

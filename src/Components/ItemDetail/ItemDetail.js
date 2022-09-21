@@ -1,10 +1,29 @@
 import { Card, CardBody, CardFooter, CardText, CardTitle } from 'reactstrap'
 /* import ItemCount from '../ItemCount/ItemCount' */
 import Counter from '../Counter/Counter'
+import { useState } from 'react'
 
 
 
 const ItemDetail = ({item}) => {
+
+    const [cantidad, setCantidad] = useState(1)
+
+    const handleAddToCart = () => {
+        const itemToCart = {
+            id: item.id,
+            precio: item.precio,
+            cantidad
+        } 
+        console.log(itemToCart)
+        /* console.log({
+            ...item,
+            cantidad,
+        }) */
+    }
+
+
+
     return (
         <div className="container">
             <Card
@@ -23,7 +42,11 @@ const ItemDetail = ({item}) => {
                     <CardText>
                         ${item.precio}
                     </CardText>
-                    <Counter max={item.stock}/>
+                    <Counter max={item.stock}
+                             counter={cantidad}
+                             setCounter={setCantidad}
+                             handleAddToCart={handleAddToCart}
+                    />
                     {/* <ItemCount/> */}
                 </CardBody>
                 <CardFooter>

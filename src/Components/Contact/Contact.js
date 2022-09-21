@@ -1,32 +1,39 @@
+import './Contact.scss';
 
 
 
 
 export const Contact = () => {
+
+    const handleSubmit = (event) => {
+        event.preventDefault()
+        console.log(event)
+    }
+
     return (
         <div className="contact">
             <img src="" alt=""/>
-            <h3>Hi! If you need to contact us, please complete your information</h3>
+            <h3 className='Help'>Hi! If you need to contact us, please complete your information</h3>
 
-            <section id="forms" class="container-fluid">
-                <form>
-                    <div class="form-group">
-                      <input type="text" class="form-control" id="exampleInputName" aria-describedby="emailHelp" placeholder="Enter name"/>
+            <section id="forms" className="container-fluid">
+                <form onSubmit={handleSubmit}>
+                    <div className="form-group">
+                      <input type="text" className="form-control" id="exampleInputName" aria-describedby="emailHelp" placeholder="Enter name"/>
                     </div>
-                    <div class="form-group">
+                    <div className="form-group">
                         <label for="InputSurname"></label>
-                        <input type="name   " class="form-control" id="exampleInputSurname" aria-describedby="emailHelp" placeholder="Enter surname"/>
+                        <input type="name   " className="form-control" id="exampleInputSurname" aria-describedby="emailHelp" placeholder="Enter surname"/>
                     </div>
-                    <div class="form-group">
+                    <div className="form-group">
                         <label for="InputNumber"></label>
-                        <input type="number" class="form-control" id="exampleInputNumber" aria-describedby="emailHelp" placeholder="Enter telephone number"/>
+                        <input type="number" className="form-control" id="exampleInputNumber" aria-describedby="emailHelp" placeholder="Enter telephone number"/>
                     </div>
-                    <div class="form-group">
+                    <div className="form-group">
                       <label for="InputEmail"></label>
-                      <input type="email" class="form-control" id="exampleInputEmail" placeholder="Enter email"/>
+                      <input type="email" className="form-control" id="exampleInputEmail" placeholder="Enter email"/>
                     </div>
                     <br/>
-                    <button type="button" onclick="capturar()" class="btn btn-primary">Submit</button>
+                    <button style={{borderRadius: "0px", textAlign: "center"}} type="submit" /* onClick="capturar()" */ className="btn btn-primary">Submit</button>
                 </form>
             </section>
         </div>

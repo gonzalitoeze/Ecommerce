@@ -1,21 +1,41 @@
-import { useEffect } from "react"
-
+import { useEffect, useState } from "react";
+import { pedirDatos } from "../../Helpers/pedirDatos"
+import { useParams } from "react-router-dom"
+import ItemDetail from "../ItemDetail/ItemDetail"
 
 
 
 const ItemDetailContainer = ( {idProductos} ) => {
 
     const [item, setItem] = useState(null)
+    const [loading, setLoading] = useState(true)
+
+    const {itemId} = useParams()
+
+    console.log(itemId)
+    console.log(item)
+
     useEffect(() => {
-        //pedirDatos
-        //setearel estado con único producto
-    }, [])
+
+        pedirDatos()
+            .then((res) => {
+                setItem(res.find((prod) => prod.id === Number(itemId)))
+            })
+            .catch(err => console.log(err))
+            .finally(() => {
+                setLoading(false)
+            })
+    }, [itemId])
 
     return (
         <div>
-            {/* Componente de presentación
-            <ItemDetailContainer Item={Item}/> */}
+            {
+            loading
+            ? <h2>Loading...</h2>
+            : <ItemDetail item={item}/>
+            }
 
         </div>
     )
 }
+export default ItemDetailContainer

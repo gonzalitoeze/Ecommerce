@@ -1,25 +1,31 @@
 import { Card, CardBody, CardFooter, CardText, CardTitle } from 'reactstrap'
 /* import ItemCount from '../ItemCount/ItemCount' */
 import Counter from '../Counter/Counter'
-import { useState } from 'react'
+import { useContext, useState } from 'react'
+import Select from '../Select/Select'
+import { CartContext } from '../../Context/CartContext'
 
 
 
 const ItemDetail = ({item}) => {
 
+    const { cart, setCart } = useContext(CartContext)
+    console.log(cart)
+
     const [cantidad, setCantidad] = useState(1)
+    const [talle, setTalle] = useState(item.options[0].value)
+
 
     const handleAddToCart = () => {
         const itemToCart = {
             id: item.id,
+            nombre: item.nombre,
             precio: item.precio,
+            talle,
             cantidad
         } 
-        console.log(itemToCart)
-        /* console.log({
-            ...item,
-            cantidad,
-        }) */
+
+        setCart( [...cart, itemToCart] )
     }
 
 
@@ -42,6 +48,9 @@ const ItemDetail = ({item}) => {
                     <CardText>
                         ${item.precio}
                     </CardText>
+                    <hr/>
+                    <Select options={item.options} onSelect={setTalle}/>
+                    <hr/>
                     <Counter max={item.stock}
                              counter={cantidad}
                              setCounter={setCantidad}

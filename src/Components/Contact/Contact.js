@@ -1,9 +1,11 @@
+
 import './Contact.scss';
 
 
 
 
 export const Contact = () => {
+
 
     const handleSubmit = (event) => {
         event.preventDefault()
@@ -21,15 +23,15 @@ export const Contact = () => {
                       <input type="text" className="form-control" id="exampleInputName" aria-describedby="emailHelp" placeholder="Enter name"/>
                     </div>
                     <div className="form-group">
-                        <label for="InputSurname"></label>
+                        <label htmlFor="InputSurname"></label>
                         <input type="name   " className="form-control" id="exampleInputSurname" aria-describedby="emailHelp" placeholder="Enter surname"/>
                     </div>
                     <div className="form-group">
-                        <label for="InputNumber"></label>
+                        <label htmlFor="InputNumber"></label>
                         <input type="number" className="form-control" id="exampleInputNumber" aria-describedby="emailHelp" placeholder="Enter telephone number"/>
                     </div>
                     <div className="form-group">
-                      <label for="InputEmail"></label>
+                      <label htmlFor="InputEmail"></label>
                       <input type="email" className="form-control" id="exampleInputEmail" placeholder="Enter email"/>
                     </div>
                     <br/>

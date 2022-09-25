@@ -4,12 +4,13 @@ import Counter from '../Counter/Counter'
 import { useContext, useState } from 'react'
 import Select from '../Select/Select'
 import { CartContext } from '../../Context/CartContext'
+import { Link } from 'react-router-dom'
 
 
 
 const ItemDetail = ({item}) => {
 
-    const { cart, setCart } = useContext(CartContext)
+    const { cart, AddToCart, isInCart } = useContext(CartContext)
     console.log(cart)
 
     const [cantidad, setCantidad] = useState(1)
@@ -24,19 +25,17 @@ const ItemDetail = ({item}) => {
             talle,
             cantidad
         } 
-
-        setCart( [...cart, itemToCart] )
+        console.log(isInCart(item.id))
+        AddToCart( itemToCart )
     }
 
 
 
     return (
-        <div className="container">
+        <div className="container my-5">
             <Card
                 className="my-2"
-                style={{
-                    width: '30%'
-                }}>
+                >
                 <img src={item.img} alt="" />
                 <CardBody>
                     <CardTitle tag="h5">
@@ -51,11 +50,20 @@ const ItemDetail = ({item}) => {
                     <hr/>
                     <Select options={item.options} onSelect={setTalle}/>
                     <hr/>
-                    <Counter max={item.stock}
-                             counter={cantidad}
-                             setCounter={setCantidad}
-                             handleAddToCart={handleAddToCart}
-                    />
+
+                    {
+                        isInCart(item.id)
+                        ? <Link to='/cart' className='btn btn-secondary my-2'>Checkout</Link>
+                        :   <Counter 
+                                max={item.stock}
+                                counter={cantidad}
+                                setCounter={setCantidad}
+                                handleAddToCart={handleAddToCart}
+                            />
+                    }
+
+                    
+
                     {/* <ItemCount/> */}
                 </CardBody>
                 <CardFooter>

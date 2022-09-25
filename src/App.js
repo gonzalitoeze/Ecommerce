@@ -7,19 +7,16 @@ import { Footer } from './Components/Footer/Footer';
 import { AboutUs } from './Components/AboutUs/AboutUs';
 import ItemListContainer from './Components/ItemListContainer/ItemListContainer';
 import ItemDetailContainer from './Components/ItemDetailContainer/ItemDetailContainer';
-import  { CartContext }  from './Context/CartContext';
-import { useState } from 'react';
+import Cart from './Components/Cart/Cart';
+import { CartProvider } from './Context/CartContext';
 
 const App = () => {
 
-  const [cart, setCart] = useState([])
+  
 
   return (
 
-    <CartContext.Provider value={ { 
-      cart,
-      setCart
-    } }>
+    <CartProvider>
 
       <BrowserRouter className="App">
 
@@ -30,8 +27,7 @@ const App = () => {
           <Route path='/products/:categoryId' element={<ItemListContainer/>}/>
           <Route path='/item/:itemId' element={<ItemDetailContainer/>}/>
 
-        </Routes>
-        <Routes>
+          <Route path='/cart' element={<Cart/>} />
           <Route path='/aboutus' element={<AboutUs/>}/>
           <Route path='contact' element={<Contact/>}/>
         </Routes>
@@ -39,7 +35,7 @@ const App = () => {
 
       </BrowserRouter>
       
-    </CartContext.Provider>
+    </CartProvider>
   );
 }
 

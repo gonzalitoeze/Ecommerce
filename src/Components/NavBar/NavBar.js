@@ -27,6 +27,7 @@ export const NavBar = () => {
             </Dropdown>
             <Nav.Link><Link  to="/aboutus" className='navbar'>About us</Link></Nav.Link>
             <Nav.Link><Link  to="contact" className='navbar'>Contact</Link></Nav.Link>
+            <Nav.Link><Link  to="login" className='navbar'>Login</Link></Nav.Link>
             <Nav.Link className='cart'><CartWidget/></Nav.Link>
 
           </Nav>

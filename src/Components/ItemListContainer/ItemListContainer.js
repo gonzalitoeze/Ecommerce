@@ -30,16 +30,18 @@ const ItemListContainer = () => {
                     setLoading(false)
                 })
     }, [categoryId])
-   
+
     return (
-        <div className="container">
-            {
-                loading
-                ? <h2>Loading...</h2>
-                :<ItemList productos={productos}/>
+
+         <div className="container">
+        
+            {   
+            loading
+            ? <h2>Loading...</h2>
+            : <ItemList productos={productos}/>
             }
-                
-        </div>
+        
+        </div>  
     )
     
 }

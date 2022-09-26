@@ -1,4 +1,4 @@
-import { createContext, useState } from "react";
+import { createContext, useContext, useState } from "react";
 
 
 
@@ -27,9 +27,37 @@ export const LoginProvider = ({children}) => {
         logged: false
     })
 
+    const login = (values) => {
+        const match = usuarios.find(user => (user.email === values.email && user.password === values.pass))
+
+        if (match) {
+            if (match.password === values.pass) {
+                setUser({
+                    user:match.email,
+                    logged: true
+                })
+            } else {
+                alert("Wrong password")
+            }
+        }else {
+            alert("Error! Please check your email or password")
+        }
+    }
+
+    const logout = () => {
+        setUser ({
+            user:'',
+            logged: false
+        })
+    }
+
+
     return (
-        <LoginContext.Provider>
+        <LoginContext.Provider value={{user, login, logout}}>
             {children}
         </LoginContext.Provider>
     )
+}
+export const useLoginContext = () => {
+    return useContext (LoginContext)
 }

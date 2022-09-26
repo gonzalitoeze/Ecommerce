@@ -1,16 +1,27 @@
-import { createContext } from "react";
-import { useState } from 'react';
+import { createContext, useState, useContext, useEffect } from "react";
+import Swal from "sweetalert2";
 
 
 
 export  const CartContext = createContext()
-
+const init = JSON.parse(localStorage.getItem('carrito')) || []
 export const CartProvider = ({children}) => {
 
-    const [cart, setCart] = useState([])
+    const [cart, setCart] = useState(init)
   
   const AddToCart = (item) => {
     setCart ([...cart, item])
+  }
+
+/*   const increaseQuantityInCart = (id) => {
+    const newCart = cart.slice() || [...cart]
+    buscar el item a modificar segun ID 
+    verificar que la modificacion sea posible
+    setCart(newCart)
+  } */
+
+  const removeItem = (id) => {
+    setCart(cart.filter((item) => item.id !== id))
   }
 
   const isInCart = (id) => {
@@ -21,8 +32,27 @@ export const CartProvider = ({children}) => {
     return cart.reduce((acc, item) => acc + item.cantidad, 0)
   }
   const cartPrice = () => {
-    return cart.reduce((acc, item) => acc + item.precio, 0)
+    return cart.reduce((acc, item) => acc + item.cantidad * item.precio, 0)
   }
+  const emptyCart = () => {
+    Swal.fire({
+        title: 'Are you sure?',
+        text: "You won't be able to revert this!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes, empty it!'
+      }).then((result) => {
+        if (result.isConfirmed) {
+
+            setCart([])
+        }})
+  }
+
+  useEffect(() => {
+    localStorage.setItem('carrito', JSON.stringify(cart))
+  }, [cart])
 
     return (
         <CartContext.Provider value={ { 
@@ -30,10 +60,16 @@ export const CartProvider = ({children}) => {
             AddToCart,
             isInCart,
             cartQuantity,
-            cartPrice
+            cartPrice,
+            emptyCart,
+            removeItem
           } }>
             {children}
 
         </CartContext.Provider>
     )
+}
+
+export const useCartContext = () => {
+    return useContext(CartContext)
 }

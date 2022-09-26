@@ -1,16 +1,16 @@
 import { Card, CardBody, CardFooter, CardText, CardTitle } from 'reactstrap'
 /* import ItemCount from '../ItemCount/ItemCount' */
 import Counter from '../Counter/Counter'
-import { useContext, useState } from 'react'
+import { useState } from 'react'
 import Select from '../Select/Select'
-import { CartContext } from '../../Context/CartContext'
+import { useCartContext } from '../../Context/CartContext'
 import { Link } from 'react-router-dom'
 
 
 
 const ItemDetail = ({item}) => {
 
-    const { cart, AddToCart, isInCart } = useContext(CartContext)
+    const { cart, AddToCart, isInCart } = useCartContext()
     console.log(cart)
 
     const [cantidad, setCantidad] = useState(1)

@@ -9,6 +9,8 @@ import ItemListContainer from './Components/ItemListContainer/ItemListContainer'
 import ItemDetailContainer from './Components/ItemDetailContainer/ItemDetailContainer';
 import Cart from './Components/Cart/Cart';
 import { CartProvider } from './Context/CartContext';
+import { LoginProvider } from './Context/LoginContext';
+import LoginScreen from './Components/LoginScreen/LoginScreen';
 
 const App = () => {
 
@@ -16,26 +18,30 @@ const App = () => {
 
   return (
 
-    <CartProvider>
+    <LoginProvider>
+      <CartProvider>
+    
+        <BrowserRouter className="App">
+    
+            <NavBar/>
+    
+          <Routes>
+            <Route path='/' element={<ItemListContainer/>}/>
+            <Route path='/products/:categoryId' element={<ItemListContainer/>}/>
+            <Route path='/item/:itemId' element={<ItemDetailContainer/>}/>
 
-      <BrowserRouter className="App">
-
-          <NavBar/>
-
-        <Routes>
-          <Route path='/' element={<ItemListContainer/>}/>
-          <Route path='/products/:categoryId' element={<ItemListContainer/>}/>
-          <Route path='/item/:itemId' element={<ItemDetailContainer/>}/>
-
-          <Route path='/cart' element={<Cart/>} />
-          <Route path='/aboutus' element={<AboutUs/>}/>
-          <Route path='contact' element={<Contact/>}/>
-        </Routes>
-          <Footer/>
-
-      </BrowserRouter>
-      
-    </CartProvider>
+            <Route path='/login' element={<LoginScreen/>}/>
+    
+            <Route path='/cart' element={<Cart/>} />
+            <Route path='/aboutus' element={<AboutUs/>}/>
+            <Route path='contact' element={<Contact/>}/>
+          </Routes>
+            <Footer/>
+    
+        </BrowserRouter>
+        
+      </CartProvider>
+    </LoginProvider>
   );
 }
 

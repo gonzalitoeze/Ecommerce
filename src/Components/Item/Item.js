@@ -18,7 +18,7 @@ const Item = ({producto}) => {
             <div className='Item'>
                 
                 <Card
-                    className="Item"
+                    className="Item my-5"
                     style={{
                         width: '30%'
                     }}>

@@ -20,14 +20,14 @@ export const Footer = () => {
                 <p><strong>Hours:</strong> 8:00 - 18:00 / Mon-Sat</p>
             </div>
             
-            <div className="follow">
+           {/*  <div className="follow">
                 <p><strong>Follow us</strong></p>
                 <div className="icon">
                     <a href="www.facebook.com"><img src={facebook} className="social" alt=''/></a>
                     <a href="www.instagram.com"><img src={instagram} className="social" alt=''/></a>
                     <a href="www.whatsapp.com"><img src={whatsapp} className="social" alt=''/></a>
                 </div>
-            </div>
+            </div> */}
             </Navbar>
         </div>
     )

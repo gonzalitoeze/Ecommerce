@@ -18,12 +18,11 @@ const Counter = ({max, counter, setCounter, handleAddToCart}) => {
 
     return(
         <div>
-            <Button variant="outline-secondary" onClick={handleSubstract}>-</Button>
+            <Button variant={counter === 1 ? "outline-secondary" : "secondary"} onClick={handleSubstract} disabled={counter === 0}>-</Button>
             <span className="mx-1"> {counter} </span>
-            <Button variant="secondary" onClick={handleAdd}>+</Button>
+            <Button variant={counter === max ? "outline-secondary" : "secondary"} onClick={handleAdd} disabled={counter === max}>+</Button>
             <br></br>
-            <Button variant="secondary" onClick={handleAddToCart} style={{width: "100%", marginTop: "2%"}}>Buy!</Button>
-
+            <Button variant="secondary" onClick={handleAddToCart} style={{width: "100%", marginTop: "2%"}} disabled={max === 0}>Buy!</Button>
         </div>
     )
 }

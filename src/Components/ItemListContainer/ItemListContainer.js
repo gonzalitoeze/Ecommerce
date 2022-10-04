@@ -1,7 +1,9 @@
-import { useEffect, useState } from "react"
-import { pedirDatos } from "../../Helpers/pedirDatos"
-import ItemList from "../ItemList/ItemList"
-import { useParams } from "react-router-dom"
+import './ItemListContainer.scss';
+import { useEffect, useState } from "react";
+import { pedirDatos } from "../../Helpers/pedirDatos";
+import ItemList from "../ItemList/ItemList";
+import { useParams } from "react-router-dom";
+import Loader from "../Loader/Loader";
 
 
 const ItemListContainer = () => {
@@ -32,16 +34,17 @@ const ItemListContainer = () => {
     }, [categoryId])
 
     return (
-
-         <div className="container">
-        
-            {   
-            loading
-            ? <h2>Loading...</h2>
-            : <ItemList productos={productos}/>
-            }
-        
-        </div>  
+        <div className="itemlistcontainer" style={{minWidth:"600px"}}>
+            <div className="container">
+                <div className="row text-center">
+                    {   
+                        loading
+                        ? <Loader/>
+                        : <ItemList productos={productos}/>
+                    }
+                </div>
+            </div>
+        </div>    
     )
     
 }

@@ -23,31 +23,42 @@ export const LoginContext = createContext()
 export const LoginProvider = ({children}) => {
 
     const [user, setUser] = useState({
-        user: '',
-        logged: false
+        user: 'hola@gmail.com',
+        logged: true,
+        error: ''
     })
 
     const login = (values) => {
-        const match = usuarios.find(user => (user.email === values.email && user.password === values.pass))
+        const match = usuarios.find(user => user.email === values.email)
 
         if (match) {
             if (match.password === values.pass) {
                 setUser({
-                    user:match.email,
-                    logged: true
+                    user: match.email,
+                    logged: true,
+                    error: ''
                 })
             } else {
-                alert("Wrong password")
+                setUser({
+                    user: '',
+                    logged: false,
+                    error: 'Wrong password'
+                })
             }
-        }else {
-            alert("Error! Please check your email or password")
+        } else {
+            setUser({
+                user: '¿',
+                logged: false,
+                error: 'Error! Please check your email or password'
+            })
         }
     }
 
     const logout = () => {
         setUser ({
             user:'',
-            logged: false
+            logged: false,
+            error: ''
         })
     }
 

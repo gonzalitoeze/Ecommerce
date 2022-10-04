@@ -10,9 +10,15 @@ export const CartWidget = () => {
 
     return (
         <div >
-        <Link to='/'>
+        <Link to='/cart'>
             <BsCart2/>
-            <span className="cart">{cartQuantity()}</span> Price: $<span className="cart">{cartPrice()}</span>
+            <span 
+                className="cart">{cartQuantity()}
+            </span>
+            Price: $
+            <span 
+                className="cart">{cartPrice()}
+            </span>
         </Link>
         </div>
     );

@@ -5,21 +5,10 @@ import './AboutUs.scss';
 
 export const AboutUs = () => {
 
-    /* const handleClick = (e) => {
-        console.log(e)
-    } */
-
     const handleSaludar = (name) => {
         console.log(name)
     }
     
-    /* useEffect(() => {
-        window.addEventListener('click', handleClick)
-        return () => {
-                window.removeEventListener('click', handleClick)
-                }
-    }, []) */
-
     return (
         <div className="container text-center title">
             <h2 onClick={() => handleSaludar("Welcome to UKE!")}>ABOUT US</h2>

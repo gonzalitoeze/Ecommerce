@@ -36,7 +36,7 @@ const ItemDetail = ({item}) => {
             <Card
                 className="my-2"
                 >
-                <img src={item.img} alt="" />
+                <img src={item.img} alt="" style={{width:"30%", marginLeft:"35%"}}/>
                 <CardBody>
                     <CardTitle tag="h5">
                         {item.nombre}
@@ -46,6 +46,9 @@ const ItemDetail = ({item}) => {
                     </CardText>
                     <CardText>
                         ${item.precio}
+                    </CardText>
+                    <CardText>
+                        {item.promo && <h3 style={{color:'orange'}}>{item.promo}% OFF!</h3>}
                     </CardText>
                     <hr/>
                     <Select options={item.options} onSelect={setTalle}/>
@@ -61,26 +64,13 @@ const ItemDetail = ({item}) => {
                                 handleAddToCart={handleAddToCart}
                             />
                     }
-
-                    
-
                     {/* <ItemCount/> */}
                 </CardBody>
                 <CardFooter>
                     Stock: {item.stock}
                 </CardFooter>
             </Card>
-
-            
-                    
         </div>
-            
     )
 }
 export default ItemDetail
-
-/* <img src={item.img} alt="" />
-            <h3>{item.nombre}</h3>
-            <h3>{item.desc}</h3>
-            <h3>{item.category}</h3>
-            <h4>{item.precio}</h4> */

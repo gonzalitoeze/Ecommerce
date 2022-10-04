@@ -11,10 +11,13 @@ import './NavBar.scss'
 
 
 export const NavBar = () => {
+
+  /* const {user, logout} = useLoginContext() */
+
     return (
-        <Navbar bg="light" variant="light">
+        <Navbar className='BarraNav' bg="light" variant="light">
         <Container>
-          <Link to="/" className='navbar'><img src={icono} className='icono' alt='' style={{width: '40%', marginLeft: '-20%'}}/></Link>
+          <Link to="/" className='navbar'><img src={icono} className='icono' alt='' style={{width: '40%', marginLeft: '20%'}}/></Link>
           <Nav>
             <Dropdown as={ButtonGroup}>
               <Nav.Link className='navbar'>Products</Nav.Link>
@@ -26,10 +29,9 @@ export const NavBar = () => {
               </Dropdown.Menu>
             </Dropdown>
             <Nav.Link><Link  to="/aboutus" className='navbar'>About us</Link></Nav.Link>
-            <Nav.Link><Link  to="contact" className='navbar'>Contact</Link></Nav.Link>
+            <Nav.Link><Link  to="/contact" className='navbar'>Contact</Link></Nav.Link>
             <Nav.Link><Link  to="login" className='navbar'>Login</Link></Nav.Link>
-            <Nav.Link className='cart'><CartWidget/></Nav.Link>
-
+            <Nav.Link><Link to="/cart" className='navbar'><CartWidget/></Link></Nav.Link>
           </Nav>
         </Container>
       </Navbar>

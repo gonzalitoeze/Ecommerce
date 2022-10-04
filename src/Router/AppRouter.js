@@ -4,6 +4,7 @@ import { NavBar } from '../Components/NavBar/NavBar';
 import { Footer } from '../Components/Footer/Footer';
 import PrivateRoutes from './PrivateRoutes';
 import PublicRoutes from './PublicRoutes';
+import Header from "../Components/Header/Header";
 
 
 
@@ -15,6 +16,7 @@ const AppRouter = () => {
     return (
         <BrowserRouter>
             <NavBar/>
+            <Header/>
             {
                 user.logged
                 ?  <PrivateRoutes/>

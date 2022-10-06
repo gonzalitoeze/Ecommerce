@@ -14,12 +14,13 @@ const ItemDetail = ({item}) => {
     console.log(cart)
 
     const [cantidad, setCantidad] = useState(1)
-    const [talle, setTalle] = useState(item.options[0].value)
+    const [talle, setTalle] = useState(item.options[1].value)
 
 
     const handleAddToCart = () => {
         const itemToCart = {
             id: item.id,
+            imagen: item.img,
             nombre: item.nombre,
             precio: item.precio,
             talle,

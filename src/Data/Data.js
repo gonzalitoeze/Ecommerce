@@ -128,7 +128,7 @@ export const stock = [
         id: 7,
         nombre: "Balistico 3.0 Women's Jiu Jitsu Gi - Black",
         precio: 180,
-        img: './img/blackgirl.webp',
+        img: '../img/blackgirl.webp',
         stock: 2,
         desc: 'Why make a perfect thing better? Because we can. Take a look at our new and improved Balistico 3.0 Jiu Jitsu Gi... the ultimate gi for the ultimate mat warrior.',
         category: 'women',

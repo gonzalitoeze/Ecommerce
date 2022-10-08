@@ -14,16 +14,16 @@ export const Contact = () => {
     return (
         <div className="contact">
             <img src="" alt=""/>
-            <h3 className='Help'>Hi! If you need to contact us, please complete your information</h3>
+            <h3 className='Help text-center'>Hi! If you need to contact us, please complete your information</h3>
 
-            <section id="forms" className="container-fluid">
+            <section id="forms" className="container text-center">
                 <form onSubmit={handleSubmit}>
                     <div className="form-group">
                       <input type="text" className="form-control" id="exampleInputName" aria-describedby="emailHelp" placeholder="Enter name"/>
                     </div>
                     <div className="form-group">
                         <label htmlFor="InputSurname"></label>
-                        <input type="name   " className="form-control" id="exampleInputSurname" aria-describedby="emailHelp" placeholder="Enter surname"/>
+                        <input type="name" className="form-control" id="exampleInputSurname"  placeholder="Enter surname"/>
                     </div>
                     <div className="form-group">
                         <label htmlFor="InputNumber"></label>
@@ -34,7 +34,7 @@ export const Contact = () => {
                       <input type="email" className="form-control" id="exampleInputEmail" placeholder="Enter email"/>
                     </div>
                     <br/>
-                    <button style={{borderRadius: "0px", textAlign: "center"}} type="submit" /* onClick="capturar()" */ className="btn btn-primary">Submit</button>
+                    <button type="submit" className="btn btn-primary">Submit</button>
                 </form>
             </section>
         </div>

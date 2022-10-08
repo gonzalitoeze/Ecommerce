@@ -57,7 +57,7 @@ const ItemDetail = ({item}) => {
 
                     {
                         isInCart(item.id)
-                        ? <Link to='/cart' className='btn btn-secondary my-2'>Checkout</Link>
+                        ? <Link to='/cart' className='btn btn-success my-2'>Checkout</Link>
                         :   <Counter 
                                 max={item.stock}
                                 counter={cantidad}

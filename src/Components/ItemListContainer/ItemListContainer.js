@@ -10,15 +10,12 @@ const ItemListContainer = () => {
 
     const [productos, setProductos] = useState([])
     const [loading, setLoading] = useState(true)
-
     const { categoryId } = useParams ()
 
     useEffect(()  => {
         setLoading(true)
-        //1- Armar referencia (sync)
         const productosRef = collection(db, 'productos')
         const q = categoryId ? query(productosRef, where('category', '==', categoryId)) : productosRef
-        //2- Consumir referencia (async)
         getDocs(q)
             .then((resp) => {
                 const productosDb = resp.docs.map( (doc) => ({ id: doc.id, ...doc.data() }) )
@@ -43,6 +40,5 @@ const ItemListContainer = () => {
             </div>
         </div>    
     )
-    
 }
 export default ItemListContainer

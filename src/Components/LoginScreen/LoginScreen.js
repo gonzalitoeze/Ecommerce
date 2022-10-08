@@ -28,7 +28,8 @@ const LoginScreen = () => {
     return(
         <div className="container" style={{marginTop:"5%", marginBottom:"3%"}}>
             <form onClick={handleSubmit}>
-                <input style={{marginBottom:"3%"}}
+                <input 
+                    style={{marginBottom:"3%"}}
                     type={'text'}
                     className='form-control'
                     value={email}

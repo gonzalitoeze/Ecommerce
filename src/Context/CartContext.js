@@ -40,14 +40,25 @@ export const CartProvider = ({children}) => {
         text: "You won't be able to revert this!",
         icon: 'warning',
         showCancelButton: true,
-        confirmButtonColor: '#3085d6',
-        cancelButtonColor: '#d33',
+        confirmButtonColor: '#A7A4A4',
+        cancelButtonColor: '#198754',
         confirmButtonText: 'Yes, empty it!'
       }).then((result) => {
         if (result.isConfirmed) {
-
             setCart([])
         }})
+  }
+
+  const finishPurchase = (id) => {
+    Swal.fire({
+      position: 'top',
+      icon: 'success',
+      title: `Purchase has been successful. Order ${id}`,
+      showConfirmButton: true,
+      confirmButtonColor: '#198754',
+      confirmButtonText: 'Oss!',
+    })
+    setCart([])
   }
 
   useEffect(() => {
@@ -62,7 +73,8 @@ export const CartProvider = ({children}) => {
             cartQuantity,
             cartPrice,
             emptyCart,
-            removeItem
+            removeItem,
+            finishPurchase
           } }>
             {children}
 

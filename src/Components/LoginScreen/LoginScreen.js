@@ -18,7 +18,7 @@ const LoginScreen = () => {
     }
 
     return(
-        <div className="container" style={{marginTop:"5%", marginBottom:"3%"}}>
+        <div className="container text-center" style={{marginTop:"5%", marginBottom:"3%", minWidth:'600px'}}>
             <form onClick={handleSubmit}>
                 <input 
                     name="email"
@@ -27,7 +27,7 @@ const LoginScreen = () => {
                     className='form-control'
                     value={values.email}
                     onChange={handleInputChange}
-                    
+                    placeholder='Enter email'
                 />
                 <input
                     name="pass"
@@ -35,6 +35,7 @@ const LoginScreen = () => {
                     className='form-control'
                     value={values.pass}
                     onChange={handleInputChange}
+                    placeholder='Enter password'
                 />
                 {user.error && <small className="alert">{user.error}</small>}
 

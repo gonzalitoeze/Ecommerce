@@ -26,10 +26,10 @@ const Checkout = () => {
         const orden = {
             comprador: values,
             items: cart,
-            total: cartPrice()
+            total: cartPrice(),
+            fecha: new Date
         }
         
-
         if (values.name.length < 2) {
             alert("Name is too short")
             return

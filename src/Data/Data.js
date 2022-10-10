@@ -110,7 +110,7 @@ export const stock = [
         nombre: 'Ultralight 2.0 Jiu Jitsu Gi - White',
         precio: 170,
         img: '../img/kingzwhite2.webp',
-        stock: 8,
+        stock: 0,
         desc: 'Our Ultralight Gi was a competitor favorite, the 2.0 promises to bring the same sturdiness and fit as well as a new updated design.',
         category: 'men',
         options: [
@@ -138,16 +138,8 @@ export const stock = [
                 text: "A1"
             },
             {
-                value: "A2",
-                text: "A2"
-            },
-            {
                 value: "A3",
                 text: "A3"
-            },
-            {
-                value: "A4",
-                text: "A4"
             }
         ]
     },
@@ -205,6 +197,10 @@ export const stock = [
             {
                 value: "A4",
                 text: "A4"
+            },
+            {
+                value: "A1",
+                text: "A1"
             }
         ]
     },
@@ -327,7 +323,7 @@ export const stock = [
         nombre: 'BJJ BELT',
         precio: 100,
         img: '../img/faixaroxaatama.jpg',
-        stock: 15,
+        stock: 0,
         desc: 'Atama Purple Belt/Faixa Roxa Atama',
         category: 'acc',
         options: [

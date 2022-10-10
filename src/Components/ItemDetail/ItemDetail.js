@@ -46,15 +46,14 @@ const ItemDetail = ({item}) => {
                         {item.desc}
                     </CardText>
                     <CardText>
-                        ${item.precio}
+                        <strong>${item.precio}</strong>
                     </CardText>
                     <CardText>
                         {item.promo && <h3 style={{color:'orange'}}>{item.promo}% OFF!</h3>}
                     </CardText>
                     <hr/>
-                    <Select options={item.options} onSelect={setTalle}/>
+                    <p>Size</p><Select options={item.options} onSelect={setTalle}/>
                     <hr/>
-
                     {
                         isInCart(item.id)
                         ? <Link to='/cart' className='btn btn-success my-2'>Checkout</Link>

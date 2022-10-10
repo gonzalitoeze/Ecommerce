@@ -7,7 +7,7 @@ export  const CartContext = createContext()
 const init = JSON.parse(localStorage.getItem('carrito')) || []
 export const CartProvider = ({children}) => {
 
-    const [cart, setCart] = useState(init)
+  const [cart, setCart] = useState(init)
   
   const AddToCart = (item) => {
     setCart ([...cart, item])
@@ -21,7 +21,8 @@ export const CartProvider = ({children}) => {
   } */
 
   const removeItem = (id) => {
-    setCart(cart.filter((item) => item.id !== id))
+    setCart( cart.filter((item) => item.id !== id) )
+
   }
 
   const isInCart = (id) => {
@@ -31,9 +32,11 @@ export const CartProvider = ({children}) => {
   const cartQuantity = () => {
     return cart.reduce((acc, item) => acc + item.cantidad, 0)
   }
+  
   const cartPrice = () => {
     return cart.reduce((acc, item) => acc + item.cantidad * item.precio, 0)
   }
+
   const emptyCart = () => {
     Swal.fire({
         title: 'Are you sure?',
@@ -49,11 +52,15 @@ export const CartProvider = ({children}) => {
         }})
   }
 
-  const finishPurchase = (id) => {
+  const finishPurchaseOutSwal = () => {
+    setCart([])
+  }
+
+  const finishPurchase = () => {
     Swal.fire({
       position: 'top',
       icon: 'success',
-      title: `Purchase has been successful. Order ${id}`,
+      title: `Purchase has been successful. Check order n°`,
       showConfirmButton: true,
       confirmButtonColor: '#198754',
       confirmButtonText: 'Oss!',
@@ -74,6 +81,7 @@ export const CartProvider = ({children}) => {
             cartPrice,
             emptyCart,
             removeItem,
+            finishPurchaseOutSwal,
             finishPurchase
           } }>
             {children}

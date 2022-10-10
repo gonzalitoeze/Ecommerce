@@ -1,7 +1,5 @@
 import Button from 'react-bootstrap/Button';
 
-
-
 const Counter = ({max, counter, setCounter, handleAddToCart}) => {
 
     const handleSubstract = () => {
@@ -13,8 +11,6 @@ const Counter = ({max, counter, setCounter, handleAddToCart}) => {
         if (counter < max)
         {setCounter(counter + 1)}
     }
-
-    
 
     return(
         <div>

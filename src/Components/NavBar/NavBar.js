@@ -28,9 +28,9 @@ export const NavBar = () => {
                 <Dropdown.Item><Link to="/Products/acc" className='navbar'>Accesories</Link></Dropdown.Item>
               </Dropdown.Menu>
             </Dropdown>
-            <Nav.Link><Link  to="/aboutus" className='navbar'>About us</Link></Nav.Link>
-            <Nav.Link><Link  to="/contact" className='navbar'>Contact</Link></Nav.Link>
-            <Nav.Link><Link  to="login" className='navbar'>Login</Link></Nav.Link>
+            <Nav.Link><Link to="/aboutus" className='navbar'>About us</Link></Nav.Link>
+            <Nav.Link><Link to="/contact" className='navbar'>Contact</Link></Nav.Link>
+            <Nav.Link><Link to="/login" className='navbar'>Login</Link></Nav.Link>
             <Nav.Link><Link to="/cart" className='navbar'><CartWidget/></Link></Nav.Link>
           </Nav>
         </Container>

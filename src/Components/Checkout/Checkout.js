@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Navigate } from 'react-router-dom';
+import { Navigate, Link } from 'react-router-dom';
 import { useCartContext } from '../../Context/CartContext';
 import { addDoc, collection, doc, getDoc, updateDoc } from 'firebase/firestore';
 import { db } from '../../firebase/config'
@@ -9,6 +9,8 @@ import { db } from '../../firebase/config'
 const Checkout = () => {
 
     const { cart, cartPrice, finishPurchase } = useCartContext()
+
+    const [orderId, setOrderId] = useState(null)
 
     const [values, setValues] = useState({
         name: '',
@@ -72,10 +74,20 @@ const Checkout = () => {
         
         addDoc(ordenesRef, orden)
             .then((doc) => {
-                console.log(doc.id)
+                setOrderId(doc.id)
                 finishPurchase(doc.id)
             })
         console.log(orden)
+    }
+
+    if (orderId) {
+        return (
+            <div className="container my-5">
+                <h2>Successful Purchase!</h2>
+                <hr/>
+                <p>Your order is: <strong>{orderId}</strong><Link to='/' className='btn btn-success btn-sm' style={{marginLeft:'80%', marginTop:'5%'}}> Go Shop!</Link></p>
+            </div>
+        )
     }
 
     if (cart.length === 0) {
@@ -146,4 +158,3 @@ const Checkout = () => {
     )
 }
 export default Checkout
-

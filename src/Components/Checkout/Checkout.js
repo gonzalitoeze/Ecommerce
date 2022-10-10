@@ -110,7 +110,7 @@ const Checkout = () => {
     }
 
     return(
-        <div className="container my-5">
+        <div className="container my-5" style={{minWidth:'600px'}}>
             <h2 className='text-center'>Checkout</h2>
 
             <form className='text-center' onSubmit={handleSubmit}>
